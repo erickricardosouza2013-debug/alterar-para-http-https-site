@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FinançaSimples Pro — plataforma de educação financeira e investimentos para iniciantes.">
+<title>FinançaSimples Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07101d;--panel:#0b1929;--panel2:#10263a;--text:#eff7ff;--muted:#9fb2c7;--line:rgba(255,255,255,.09);--green:#4ade80;--blue:#38bdf8;--amber:#facc15;--red:#fb7185;--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0,#123655 0,#07101d 36%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+button,input,select{font:inherit}a{color:inherit;text-decoration:none}.container{width:min(1180px,92%);margin:auto}.top{position:sticky;top:0;z-index:100;background:rgba(7,16,29,.84);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-family:"Space Grotesk";font-size:1.18rem;font-weight:800}.brand span{color:var(--green)}
+.navlinks{display:flex;gap:18px;align-items:center}.navlinks a{font-size:.9rem;color:var(--muted)}.navlinks a:hover{color:var(--text)}
+.user-pill{background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.22);padding:8px 11px;border-radius:999px;font-size:.78rem}
+.btn{border:0;border-radius:12px;padding:11px 15px;font-weight:800;cursor:pointer}.primary{background:var(--green);color:#052510}.ghost{background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--text)}
+.hero{padding:65px 0 42px;display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:center}.eyebrow{color:#bff7cf;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.08;letter-spacing:-.04em}.hero h1{font-size:clamp(2.7rem,5vw,5rem);margin:13px 0}.hero p{font-size:1.06rem;color:var(--muted);max-width:690px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.card{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:var(--radius);padding:19px;box-shadow:0 18px 45px rgba(0,0,0,.22)}
+.hero-card .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}.stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:15px;padding:13px}.stat b{font-size:1.45rem;display:block}.stat span{color:var(--muted);font-size:.77rem}
+.section{padding:42px 0}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:18px}.section-head h2{font-size:2rem;margin:0}.section-head p{color:var(--muted);margin:4px 0 0;max-width:700px}
+.progress{margin-top:22px}.track{height:10px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--blue));transition:.3s}.progressline{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem;margin-top:7px}
+.path{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.module{min-height:180px;display:flex;flex-direction:column;justify-content:space-between}.module .number{display:inline-flex;width:34px;height:34px;border-radius:10px;align-items:center;justify-content:center;background:rgba(56,189,248,.1);color:#afe4ff;font-weight:800}.module p{color:var(--muted);font-size:.86rem}.module.locked{opacity:.58}.module.done{border-color:rgba(74,222,128,.35)}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:5px 8px;border-radius:999px;background:rgba(56,189,248,.1);color:#ace4ff;font-size:.72rem;font-weight:800}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lesson-view{display:grid;grid-template-columns:1.4fr .6fr;gap:16px}.slide{min-height:360px;border-radius:18px;background:linear-gradient(135deg,#0e3049,#0c1b2e);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;justify-content:center}.slide h3{font-size:2rem;margin:14px 0}.slide p{color:#c3d5e7;max-width:670px}.slide-controls{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.side-list{display:grid;gap:9px}.side-item{padding:12px;border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:13px;cursor:pointer}.side-item.active{border-color:rgba(74,222,128,.4);background:rgba(74,222,128,.06)}.side-item small{color:var(--muted)}
+.video-box{aspect-ratio:16/9;border-radius:16px;border:1px solid var(--line);background:repeating-linear-gradient(45deg,#0a1928,#0a1928 10px,#0d2033 10px,#0d2033 20px);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:20px}.video-box .play{font-size:3rem}.video-box p{color:var(--muted);margin:5px 0 0}
+.quiz-opt{display:block;width:100%;text-align:left;margin:8px 0;padding:11px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);cursor:pointer}.quiz-opt.good{background:rgba(74,222,128,.1);border-color:rgba(74,222,128,.5)}.quiz-opt.bad{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.5)}
+.field{margin:10px 0}.field label{display:block;color:var(--muted);font-size:.8rem;margin-bottom:6px}.field input,.field select{width:100%;background:#081522;border:1px solid var(--line);border-radius:11px;color:var(--text);padding:10px}
+.result{margin-top:12px;padding:15px;border-radius:14px;background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.2)}.result strong{font-size:1.8rem;font-family:"Space Grotesk"}
+.table{width:100%;border-collapse:collapse}.table th,.table td{padding:10px;border-bottom:1px solid var(--line);text-align:left;font-size:.86rem}.table th{color:var(--muted)}
+.rank{display:grid;gap:9px}.rankrow{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:11px;border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:13px}.rankrow span{color:var(--muted);font-size:.82rem}
+.checks{display:grid;gap:9px}.check{padding:11px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03)}.check input{accent-color:var(--green);margin-right:8px}
+.cert{background:linear-gradient(135deg,rgba(74,222,128,.10),rgba(56,189,248,.08));border:1px solid rgba(74,222,128,.25)}.cert h3{margin:5px 0 8px}.cert small{color:var(--muted)}
+.notice{color:#f2e6a8;background:rgba(250,204,21,.055);border:1px solid rgba(250,204,21,.2);padding:13px;border-radius:13px;font-size:.86rem}.footer{text-align:center;color:var(--muted);padding:35px 0 65px;font-size:.82rem}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}.modal.show{display:flex}.modal-card{width:min(520px,100%);background:#0b1929;border:1px solid var(--line);border-radius:18px;padding:20px}
+@media(max-width:950px){.hero,.lesson-view{grid-template-columns:1fr}.path{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr 1fr}.navlinks{display:none}}
+@media(max-width:650px){.path,.grid2,.grid3,.hero-card .stats{grid-template-columns:1fr}.hero{padding-top:35px}.hero h1{font-size:2.65rem}}
+</style>
+</head>
+<body>
+<header class="top"><div class="container nav">
+  <a class="brand" href="#inicio">Finança<span>Simples</span> Pro</a>
+  <nav class="navlinks"><a href="#trilha">Trilha</a><a href="#aulas">Aulas</a><a href="#quiz">Quiz</a><a href="#ferramentas">Ferramentas</a><a href="#ranking">Ranking</a></nav>
+  <div style="display:flex;align-items:center;gap:8px"><span class="user-pill" id="userPill">Visitante</span><button class="btn ghost" onclick="openLogin()">Entrar</button></div>
+</div></header>
+
+<main id="inicio">
+<section class="hero"><div class="container" style="display:contents">
+  <div><div class="eyebrow">Aprenda • pratique • avance</div>
+    <h1>Educação financeira em formato de curso, jogo e laboratório.</h1>
+    <p>Aprenda o básico sobre dinheiro, orçamento, juros, reserva de emergência e investimentos por meio de aulas visuais, desafios, quizzes e simuladores.</p>
+    <div class="actions"><a href="#trilha" class="btn primary">Começar minha trilha</a><button class="btn ghost" onclick="openLogin()">Criar perfil</button></div>
+    <div class="progress"><div class="track"><div class="bar" id="mainBar"></div></div><div class="progressline"><span id="progressLabel">0% concluído</span><span id="xpLabel">0 XP</span></div></div>
+  </div>
+  <div class="card hero-card"><div class="eyebrow">Painel do aluno</div><h3 style="margin:8px 0">Sua jornada</h3><p style="color:var(--muted);font-size:.9rem;margin:0">Ganhe XP ao estudar e completar atividades.</p>
+    <div class="stats"><div class="stat"><b id="lessonsStat">0/5</b><span>Módulos</span></div><div class="stat"><b id="quizStat">0%</b><span>Quiz</span></div><div class="stat"><b id="taskStat">0/5</b><span>Hábitos</span></div></div>
+    <div style="margin-top:15px"><span class="badge">⭐ Nível <b id="levelStat">1</b></span></div>
+  </div>
+</div></section>
+
+<section class="section" id="trilha"><div class="container">
+  <div class="section-head"><div><h2>Trilha do iniciante</h2><p>Uma sequência simples: primeiro organize sua vida financeira, depois entenda os investimentos.</p></div></div>
+  <div class="path" id="modules"></div>
+</div></section>
+
+<section class="section" id="aulas"><div class="container">
+  <div class="section-head"><div><h2>Aula multimídia</h2><p>O player abaixo funciona como espaço para vídeos. O slideshow também pode ser reproduzido automaticamente.</p></div></div>
+  <div class="lesson-view">
+    <div><div class="card">
+      <div class="video-box"><div class="play">▶</div><b>Espaço para seu vídeo MP4/YouTube</b><p>Substitua este bloco por uma aula gravada quando publicar o site.</p></div>
+      <div class="slide" id="slide"><span class="badge" id="slideTag">MÓDULO 1</span><h3 id="slideTitle">Por que educação financeira importa?</h3><p id="slideText">Entender seu dinheiro é aprender a tomar decisões conscientes sobre ganhar, gastar, guardar e investir.</p></div>
+      <div class="slide-controls"><button class="btn ghost" onclick="changeSlide(-1)">← Anterior</button><button class="btn ghost" id="autoBtn" onclick="toggleAuto()">▶ Reproduzir slides</button><button class="btn ghost" onclick="changeSlide(1)">Próximo →</button><button class="btn primary" onclick="completeModule()">✓ Concluir módulo</button></div>
+    </div></div>
+    <aside class="card"><div class="eyebrow">Conteúdo</div><h3 style="margin:8px 0 14px">Módulos</h3><div class="side-list" id="lessonList"></div></aside>
+  </div>
+</div></section>
+
+<section class="section" id="quiz"><div class="container">
+  <div class="section-head"><div><h2>Quiz com pontuação</h2><p>Responda, veja a explicação e ganhe XP.</p></div></div>
+  <div class="grid2"><div class="card"><div style="display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem"><span id="qCounter">1/5</span><span>XP: <b id="qXP">0</b></span></div><h3 id="qText" style="margin:12px 0"></h3><div id="qOptions"></div><p id="qFeedback" style="color:var(--muted);min-height:28px"></p><button class="btn ghost" id="qNext" onclick="nextQ()" style="display:none">Próxima</button></div>
+  <div class="card"><span class="badge">🏆 Conquista</span><h3>Meta de hoje</h3><p style="color:var(--muted)">Complete 1 módulo + 3 perguntas do quiz e marque 1 hábito. Isso representa uma sessão de estudo.</p><div class="result"><strong id="dailyStatus">0/3</strong><div style="color:var(--muted)">etapas completas</div></div></div></div>
+</div></section>
+
+<section class="section" id="ferramentas"><div class="container">
+  <div class="section-head"><div><h2>Laboratório financeiro</h2><p>Ferramentas didáticas para testar conceitos com números.</p></div></div>
+  <div class="grid2">
+    <div class="card"><span class="badge">Calculadora</span><h3>Orçamento mensal</h3>
+      <div class="field"><label>Renda</label><input id="income" type="number" value="1500"></div>
+      <div class="field"><label>Essenciais</label><input id="ess" type="number" value="900"></div>
+      <div class="field"><label>Não essenciais</label><input id="nEss" type="number" value="250"></div>
+      <button class="btn primary" onclick="budget()">Calcular orçamento</button><div class="result"><strong id="budgetOut">R$ 350,00</strong><div style="color:var(--muted)" id="budgetMsg">Sobra mensal estimada.</div></div>
+    </div>
+    <div class="card"><span class="badge">Simulador</span><h3>Juros compostos</h3>
+      <div class="field"><label>Valor inicial</label><input id="principal" type="number" value="100"></div>
+      <div class="field"><label>Aporte mensal</label><input id="aporte" type="number" value="50"></div>
+      <div class="field"><label>Taxa mensal (% apenas para estudo)</label><input id="taxa" type="number" step=".01" value=".8"></div>
+      <div class="field"><label>Meses</label><input id="meses" type="number" value="24"></div>
+      <button class="btn primary" onclick="compound()">Simular</button><div class="result"><strong id="compoundOut">R$ 1.???</strong><div style="color:var(--muted)">Cenário matemático, não garantia de rendimento.</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section" id="ranking"><div class="container"><div class="section-head"><div><h2>Ranking da comunidade</h2><p>Exemplo de ranking visual. Em produção, isso seria conectado a um banco de dados e contas reais.</p></div></div>
+  <div class="grid2"><div class="card"><div class="rank">
+    <div class="rankrow"><b>1º</b><div><b>Ana</b><span> Exploradora</span></div><strong>1.420 XP</strong></div>
+    <div class="rankrow"><b>2º</b><div><b>Rafa</b><span> Aprendiz</span></div><strong>1.180 XP</strong></div>
+    <div class="rankrow"><b>3º</b><div><b>João</b><span> Organizador</span></div><strong>960 XP</strong></div>
+    <div class="rankrow"><b>4º</b><div><b>Você</b><span> Continue estudando</span></div><strong id="rankXP">0 XP</strong></div>
+  </div></div>
+  <div class="card"><span class="badge">🎓 Certificado</span><h3>Certificado de conclusão</h3><p style="color:var(--muted)">Ao completar os 5 módulos, o botão abaixo fica disponível para gerar uma versão demonstrativa do certificado.</p><button id="certBtn" class="btn primary" disabled onclick="makeCertificate()">Gerar certificado</button><div id="certArea" style="margin-top:12px"></div></div></div>
+</div></section>
+
+<section class="section"><div class="container"><div class="section-head"><div><h2>Hábitos financeiros</h2><p>Marque o que você já pratica.</p></div></div><div class="card checks" id="checks">
+<label class="check"><input type="checkbox"> Sei quanto entra e quanto sai por mês.</label>
+<label class="check"><input type="checkbox"> Tenho objetivos financeiros definidos.</label>
+<label class="check"><input type="checkbox"> Comparo preços antes de comprar.</label>
+<label class="check"><input type="checkbox"> Conheço os riscos do investimento que estudo.</label>
+<label class="check"><input type="checkbox"> Sei diferenciar liquidez, prazo e rentabilidade.</label>
+</div></div></section>
+
+<section class="section"><div class="container"><div class="notice"><b>Importante:</b> conteúdo educativo. Exemplos, simuladores e rankings desta demonstração não constituem recomendação de investimento. Resultados reais dependem de fatores, riscos, custos, impostos e condições de mercado.</div></div></section>
+</main>
+<footer class="footer">FinançaSimples Pro • Plataforma demonstrativa de educação financeira • v2.0</footer>
+
+<div class="modal" id="loginModal"><div class="modal-card"><h3>Entrar / criar perfil</h3><p style="color:var(--muted)">Nesta versão, o perfil é salvo apenas neste navegador.</p><div class="field"><label>Nome</label><input id="nameInput" placeholder="Digite seu nome"></div><button class="btn primary" onclick="saveUser()">Salvar perfil</button><button class="btn ghost" onclick="closeLogin()" style="margin-left:6px">Cancelar</button></div></div>
+
+<script>
+const modules=[
+["Módulo 1","Fundamentos","Dinheiro, prioridades e comportamento"],["Módulo 2","Orçamento","Renda, despesas e planejamento"],["Módulo 3","Juros","Inflação e juros compostos"],["Módulo 4","Reserva","Liquidez, segurança e imprevistos"],["Módulo 5","Investimentos","Risco, retorno e diversificação"]
+];
+const slides=[
+["MÓDULO 1","Por que educação financeira importa?","Entender seu dinheiro é aprender a tomar decisões conscientes sobre ganhar, gastar, guardar e investir."],
+["MÓDULO 1","Necessidade x vontade","Uma compra pode ser válida sem ser prioridade. O orçamento ajuda você a decidir com clareza."],
+["MÓDULO 2","O orçamento mostra o caminho","Liste sua renda e suas despesas. Depois compare o que acontece na prática com seus objetivos."],
+["MÓDULO 3","Juros compostos","O crescimento pode acontecer sobre o valor inicial e sobre juros já acumulados. Use a matemática para entender o conceito."],
+["MÓDULO 4","Reserva de emergência","O foco é ter recursos acessíveis para imprevistos. Reserva e investimento de longo prazo têm funções diferentes."],
+["MÓDULO 5","Risco e diversificação","Todo investimento tem características e riscos. Conhecer prazo, liquidez e possibilidade de perdas é parte do processo."]
+];
+const questions=[
+["Qual é a principal função de um orçamento?",["Eliminar todos os gastos","Mostrar entradas, despesas e prioridades","Garantir lucro em investimentos","Evitar qualquer compra"],1,"O orçamento organiza a visão do dinheiro."],
+["O que melhor descreve inflação?",["Queda geral de preços","Aumento geral de preços","Lucro garantido","Saldo bancário"],1,"Inflação é o aumento geral dos preços ao longo do tempo."],
+["Diversificação significa:",["Concentrar tudo em um ativo","Distribuir recursos entre opções","Nunca investir","Usar crédito para investir"],1,"Diversificar reduz concentração de risco, mas não elimina riscos."],
+["Liquidez está relacionada a:",["Facilidade de transformar o investimento em dinheiro disponível","Taxa de inflação","Tamanho do patrimônio","Quantidade de impostos"],0,"Liquidez trata da facilidade e rapidez de acesso ao dinheiro."],
+["Qual frase é correta?",["Todo investimento garante lucro","Investimentos podem ter riscos","Maior retorno nunca tem risco","Investir é sempre melhor do que guardar"],1,"Investimentos podem variar e gerar resultados diferentes do esperado."]
+];
+
+let state=JSON.parse(localStorage.getItem("fsp_state")||'{"name":"","done":[],"xp":0,"tasks":[false,false,false,false,false]}');
+let slideIndex=0, auto=null, qIndex=0, qAnswered=false;
+const money=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+function save(){localStorage.setItem("fsp_state",JSON.stringify(state));render();}
+function render(){
+  document.getElementById("userPill").textContent=state.name||"Visitante";
+  document.getElementById("lessonsStat").textContent=`${state.done.length}/5`;
+  document.getElementById("taskStat").textContent=`${state.tasks.filter(Boolean).length}/5`;
+  document.getElementById("xpLabel").textContent=`${state.xp} XP`;
+  document.getElementById("rankXP").textContent=`${state.xp} XP`;
+  const pct=Math.round((state.done.length/5)*60+(qIndex/5)*25+(state.tasks.filter(Boolean).length/5)*15);
+  document.getElementById("mainBar").style.width=Math.min(100,pct)+"%";document.getElementById("progressLabel").textContent=Math.min(100,pct)+"% concluído";
+  document.getElementById("levelStat").textContent=Math.max(1,Math.floor(state.xp/200)+1);
+  document.getElementById("quizStat").textContent=qAnswered?"20%":"0%";
+  document.getElementById("certBtn").disabled=state.done.length<5;
+  document.querySelectorAll(".module").forEach((el,i)=>{el.classList.toggle("done",state.done.includes(i));});
+}
+function renderModules(){
+ const box=document.getElementById("modules");box.innerHTML="";
+ modules.forEach((m,i)=>{const d=document.createElement("div");d.className="card module "+(state.done.includes(i)?"done":"");d.innerHTML=`<div><span class="number">${i+1}</span><span class="badge" style="margin-left:7px">${state.done.includes(i)?"Concluído":"Aula"}</span></div><div><h3 style="margin:10px 0 5px">${m[1]}</h3><p>${m[2]}</p></div><button class="btn ghost" onclick="jumpToModule(${i})">${state.done.includes(i)?"Revisar":"Estudar"}</button>`;box.appendChild(d)});
+}
+function renderLessonList(){const box=document.getElementById("lessonList");box.innerHTML="";modules.forEach((m,i)=>{const d=document.createElement("div");d.className="side-item";d.classList.toggle("active",i===slideIndex%5);d.innerHTML=`<b>${i+1}. ${m[1]}</b><br><small>${state.done.includes(i)?"✓ concluído":"clique para abrir"}</small>`;d.onclick=()=>jumpToModule(i);box.appendChild(d)})}
+function showSlide(){const s=slides[slideIndex];document.getElementById("slideTag").textContent=s[0];document.getElementById("slideTitle").textContent=s[1];document.getElementById("slideText").textContent=s[2];renderLessonList();render()}
+function changeSlide(delta){slideIndex=(slideIndex+delta+slides.length)%slides.length;showSlide()}
+function toggleAuto(){if(auto){clearInterval(auto);auto=null;document.getElementById("autoBtn").textContent="▶ Reproduzir slides"}else{auto=setInterval(()=>changeSlide(1),3500);document.getElementById("autoBtn").textContent="⏸ Pausar slides"}}
+function jumpToModule(i){slideIndex=i%5;showSlide();document.getElementById("aulas").scrollIntoView({behavior:"smooth"})}
+function completeModule(){const i=slideIndex%5;if(!state.done.includes(i)){state.done.push(i);state.xp+=100;showToast("Módulo concluído! +100 XP");save()}}
+function renderQ(){const q=questions[qIndex];qAnswered=false;document.getElementById("qCounter").textContent=`${qIndex+1}/5`;document.getElementById("qXP").textContent=state.xp;document.getElementById("qText").textContent=q[0];document.getElementById("qFeedback").textContent="";document.getElementById("qNext").style.display="none";const b=document.getElementById("qOptions");b.innerHTML="";q[1].forEach((opt,i)=>{const el=document.createElement("button");el.className="quiz-opt";el.textContent=opt;el.onclick=()=>answerQ(i,el);b.appendChild(el)})}
+function answerQ(i,el){if(qAnswered)return;qAnswered=true;const q=questions[qIndex];[...document.querySelectorAll(".quiz-opt")].forEach((x,j)=>{x.disabled=true;if(j===q[2])x.classList.add("good")});if(i===q[2]){el.classList.add("good");state.xp+=40;showToast("Acertou! +40 XP")}else{el.classList.add("bad");showToast("Quase! Veja a explicação.")}document.getElementById("qFeedback").textContent=q[3];document.getElementById("qNext").style.display="inline-block";save()}
+function nextQ(){qIndex=(qIndex+1)%5;renderQ()}
+function budget(){const r=+income.value||0,e=+ess.value||0,n=+nEss.value||0,s=r-e-n;budgetOut.textContent=money(s);budgetMsg.textContent=s>=0?"Sobra estimada após os gastos informados.":"Os gastos informados superam a renda."}
+function compound(){let p=+principal.value||0,m=+aporte.value||0,r=(+taxa.value||0)/100,n=Math.max(1,+meses.value||1);let total=p;for(let i=0;i<n;i++)total=total*(1+r)+m;compoundOut.textContent=money(total)}
+function bindTasks(){document.querySelectorAll("#checks input").forEach((x,i)=>{x.checked=!!state.tasks[i];x.onchange=()=>{state.tasks[i]=x.checked;if(x.checked)state.xp+=10;save()}})}
+function openLogin(){loginModal.classList.add("show");nameInput.value=state.name||""}function closeLogin(){loginModal.classList.remove("show")}function saveUser(){state.name=nameInput.value.trim()||"Aluno";save();closeLogin();showToast("Perfil salvo neste navegador.")}
+function makeCertificate(){const name=state.name||"Aluno";certArea.innerHTML=`<div class="card cert"><div class="eyebrow">CERTIFICADO DEMONSTRATIVO</div><h3>${name}</h3><p>Concluiu a trilha básica de Educação Financeira do FinançaSimples Pro.</p><small>Emitido digitalmente • ${new Date().toLocaleDateString("pt-BR")}</small></div>`;state.xp+=50;save();showToast("Certificado gerado! +50 XP")}
+function showToast(msg){const t=document.createElement("div");t.textContent=msg;t.style="position:fixed;right:18px;bottom:18px;background:#0b1929;border:1px solid rgba(255,255,255,.1);padding:12px 14px;border-radius:12px;z-index:500;box-shadow:0 12px 30px rgba(0,0,0,.3)";document.body.appendChild(t);setTimeout(()=>t.remove(),1800)}
+renderModules();renderQ();bindTasks();showSlide();budget();compound();render();
+</script>
+</body>
+</html>
